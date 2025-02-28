@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Contact Page</title>
+    <style>
+        /* Stil dasar tetap sama seperti sebelumnya */
+        body {
+            background-color: var(--color-neutral-900, #111);
+            color: var(--color-light, #fff);
+            font-size: var(--size-font, 16px);
+            margin: 0;
+            padding: 0;
+            font-family: 'PP Neue Corp Wide', sans-serif;
+        }
+
+        .parallax {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax__header, .parallax__contact, .parallax__apps {
+            padding: var(--section-padding, 2rem) var(--container-padding, 1rem);
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            display: flex;
+            position: relative;
+            z-index: 2;
+        }
+
+        .parallax__visuals {
+            object-fit: cover;
+            width: 100%;
+            max-width: none;
+            height: 120%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .parallax__layers {
+            object-fit: cover;
+            width: 100%;
+            max-width: none;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        .parallax__layer-img {
+            pointer-events: none;
+            object-fit: cover;
+            width: 100%;
+            max-width: none;
+            height: 117.5%;
+            position: absolute;
+            top: -17.5%;
+            left: 0;
+        }
+
+        .parallax__fade {
+            --color-dark-rgb: 0, 0, 0;
+            background: linear-gradient(to top, rgba(var(--color-dark-rgb), 1) 0%, rgba(var(--color-dark-rgb), 0.738) 19%, rgba(var(--color-dark-rgb), 0.541) 34%, rgba(var(--color-dark-rgb), 0.382) 47%, rgba(var(--color-dark-rgb), 0.278) 56.5%, rgba(var(--color-dark-rgb), 0.194) 65%, rgba(var(--color-dark-rgb), 0.126) 73%, rgba(var(--color-dark-rgb), 0.075) 80.2%, rgba(var(--color-dark-rgb), 0.021) 91%, rgba(var(--color-dark-rgb), 0.008) 95.2%, rgba(var(--color-dark-rgb), 0.002) 98.2%, transparent 100%);
+            z-index: 30;
+            width: 100%;
+            height: 20%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .parallax__title {
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0;
+            font-size: 11vw;
+            font-weight: 800;
+            line-height: 1;
+            position: relative;
+        }
+
+        .parallax__black-line-overflow {
+            z-index: 20;
+            background-color: var(--color-black, #000);
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+        }
+
+        .contact-wrapper, .apps-wrapper {
+            text-align: center;
+            z-index: 5;
+        }
+
+        .contact-btn, .app-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #25D366;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .contact-btn:hover, .app-btn:hover {
+            transform: scale(1.05);
+            background-color: #20b956;
+        }
+
+        .app-btn {
+            background-color: #1E90FF;
+        }
+
+        .app-btn:hover {
+            background-color: #1c7ed6;
+        }
+
+        @font-face {
+            font-family: 'PP Neue Corp Wide';
+            src: url('https://cdn.prod.website-files.com/671752cd4027f01b1b8f1c7f/6717e399d30a606fed425914_PPNeueCorp-WideUltrabold.woff2') format('woff2');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax">
+        <!-- Header Parallax: Konsep teknologi modern -->
+        <section class="parallax__header">
+            <div class="parallax__visuals">
+                <div class="parallax__black-line-overflow"></div>
+                <div data-parallax-layers class="parallax__layers">
+                    <img src="https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?q=80&w=1920&auto=format&fit=crop" data-parallax-layer="1" alt="Tech Background Layer 1" class="parallax__layer-img">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1920&auto=format&fit=crop" data-parallax-layer="2" alt="Tech Background Layer 2" class="parallax__layer-img">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop" data-parallax-layer="4" alt="Tech Background Layer 3" class="parallax__layer-img">
+                </div>
+                <div class="parallax__fade"></div>
+            </div>
+            <h2 class="parallax__title">scroll</h2>
+        </section>
+
+        <!-- Contact WhatsApp Section: Konsep komunikasi modern -->
+        <section class="parallax__contact">
+            <div class="parallax__visuals">
+                <div class="parallax__black-line-overflow"></div>
+                <div data-parallax-layers class="parallax__layers">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920&auto=format&fit=crop" data-parallax-layer="1" alt="Contact Background Layer 1" class="parallax__layer-img">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1920&auto=format&fit=crop" data-parallax-layer="2" alt="Contact Background Layer 2" class="parallax__layer-img">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto=format&fit=crop" data-parallax-layer="4" alt="Contact Background Layer 3" class="parallax__layer-img">
+                </div>
+                <div class="parallax__fade"></div>
+            </div>
+            <div class="contact-wrapper">
+                <h2 class="parallax__title">Contact </h2>
+                <a href="https://wa.me/+6285604873274" target="_blank" class="contact-btn">WhatsApp</a>
+            </div>
+        </section>
+
+        <!-- Other Apps Section: Konsep aplikasi digital futuristic -->
+        <section class="parallax__apps">
+            <div class="parallax__visuals">
+                <div class="parallax__black-line-overflow"></div>
+                <div data-parallax-layers class="parallax__layers">
+                    <img src="https://images.unsplash.com/photo-1531297484009-2f43e6c8e2c7?q=80&w=1920&auto=format&fit=crop" data-parallax-layer="1" alt="Apps Background Layer 1" class="parallax__layer-img">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop" data-parallax-layer="2" alt="Apps Background Layer 2" class="parallax__layer-img">
+                    <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?q=80&w=1920&auto=format&fit=crop" data-parallax-layer="4" alt="Apps Background Layer 3" class="parallax__layer-img">
+                </div>
+                <div class="parallax__fade"></div>
+            </div>
+            <div class="apps-wrapper">
+                <h2 class="parallax__title">my website</h2>
+                <a href="https://techyoid.com/" target="_blank" class="app-btn">click</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Register GSAP Plugins
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Parallax Layers untuk semua section
+            document.querySelectorAll('[data-parallax-layers]').forEach((triggerElement) => {
+                let tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: triggerElement,
+                        start: "0% 0%",
+                        end: "100% 0%",
+                        scrub: 0
+                    }
+                });
+                const layers = [
+                    { layer: "1", yPercent: 70 },
+                    { layer: "2", yPercent: 55 },
+                    { layer: "4", yPercent: 10 }
+                ];
+                layers.forEach((layerObj, idx) => {
+                    tl.to(
+                        triggerElement.querySelectorAll(`[data-parallax-layer="${layerObj.layer}"]`),
+                        {
+                            yPercent: layerObj.yPercent,
+                            ease: "none"
+                        },
+                        idx === 0 ? undefined : "<"
+                    );
+                });
+            });
+
+            // Lenis Smooth Scroll
+            const lenis = new Lenis();
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+            gsap.ticker.lagSmoothing(0);
+        });
+    </script>
+</body>
+</html>
